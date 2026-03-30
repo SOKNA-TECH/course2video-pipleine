@@ -6,7 +6,7 @@ Everything runs on **Google Colab** (no local GPU or heavy downloads needed). Ju
 
 > **How it works:** The notebooks are lightweight orchestrators that manage the workflow and data flow. Heavy processing (ASR transcription, LLM inference) happens on the API providers' servers — not on Colab's runtime. Colab just coordinates the calls and handles file I/O with Google Drive.
 
-## Architecture
+## Pipeline
 
 ```
 ┌─────────────┐   ┌──────────────┐   ┌───────────────┐   ┌───────────────┐   ┌──────────────┐
@@ -85,11 +85,13 @@ WAV Audio (16kHz mono) ─── via GCS public URL ──→ Qwen3-ASR
 | 04 | `04_video_segmentation.ipynb` | Cuts videos into chunks, builds structured output | FFmpeg, (optional) S3-compatible upload |
 | 05 | `05_articles_and_quizzes.ipynb` | Generates article summaries and multiple-choice quizzes | Any OpenAI-compatible API (default: Kimi K2) |
 
-## Prerequisites
+## Platform/library choices
+
+Our current choices are the following for convenience and preference but also, you can adapt to your own preferences easily.
 
 - **Google Cloud Platform** — a GCP project ID with Cloud Storage API enabled. No API key needed — Colab's built-in `auth.authenticate_user()` handles authentication via an OAuth popup. The project ID is only used to create the temporary staging bucket.
 - **Alibaba Cloud / DashScope** — API key for Qwen3-ASR transcription ([sign up](https://www.alibabacloud.com/en/solutions/generative-ai/dashscope))
-- **LLM API** — any OpenAI-compatible provider. Default is Kimi K2 via [Moonshot](https://platform.moonshot.cn/), but GPT-4, Claude, Gemini, Groq, etc. all work by changing `BASE_URL` and `MODEL_NAME`
+- **LLM API** — any OpenAI-compatible provider. Default is Kimi K2 via [Moonshot](https://platform.moonshot.cn/), but GPT-4, Claude, Gemini, etc. all work by changing `BASE_URL` and `MODEL_NAME`
 - **(Optional) S3-compatible storage** — for uploading final output (AWS S3, Railway, Cloudflare R2, MinIO, etc.)
 
 > **Privacy Note:** Your data is sent to API providers (Alibaba DashScope for ASR, LLM providers like Kimi) as paid API calls. Providers have terms of service protecting your data and do not train on your content without consent. The notebooks only orchestrate the workflow — heavy processing happens on the API providers' servers.
@@ -99,8 +101,7 @@ WAV Audio (16kHz mono) ─── via GCS public URL ──→ Qwen3-ASR
 See the `schemas/` folder for sample JSON files showing the exact structure produced at each stage:
 
 - `transcript_output.json` — what Qwen3-ASR returns (Step 2 output)
-- `chunking_plan.json` — the LLM's segmentation plan (Step 3 output)
-- `chunk_data.json` — metadata inside each chunk folder (Step 4 output)
+- `chunking_plan.json` — the LLM's segmentation plan (semantic chunking) (Step 3 output)
 - `article_output.json` — the LLM-generated article summary (Step 5 output)
 - `quiz_output.json` — the LLM-generated quiz with per-option feedback (Step 5 output)
 
@@ -146,7 +147,6 @@ video-to-course-pipeline/
 └── schemas/
     ├── transcript_output.json  # Sample Step 2 output
     ├── chunking_plan.json      # Sample Step 3 output
-    ├── chunk_data.json         # Sample Step 4 output
     ├── article_output.json     # Sample Step 5 output (article)
     └── quiz_output.json        # Sample Step 5 output (quiz)
 ```
