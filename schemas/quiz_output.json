@@ -1,0 +1,29 @@
+{
+  "quizzes": [
+    {
+      "question": "What is the primary benefit of a 'Design-First' approach according to the discussion?",
+      "options": [
+        {
+          "text": "It allows developers to delegate architecture decisions to AI tools entirely.",
+          "is_correct": false,
+          "feedback": "Incorrect. The discussion emphasizes that architecture must be human-led; design-first ensures the human stays in control."
+        },
+        {
+          "text": "It provides a clear contract and roadmap, making AI-generated code more reliable and easier to integrate.",
+          "is_correct": true,
+          "feedback": "Correct. By defining a clear OpenAPI spec first, humans provide the necessary structure that AI needs to be productive."
+        },
+        {
+          "text": "It eliminates the need for any documentation during the software development lifecycle.",
+          "is_correct": false,
+          "feedback": "Incorrect. In fact, a design-first approach *is* a form of living documentation that improves clarity."
+        },
+        {
+          "text": "It focus exclusively on front-end aesthetics rather than back-end functionality.",
+          "is_correct": false,
+          "feedback": "Incorrect. System design covers the full stack, with a heavy emphasis on how services communicate."
+        }
+      ]
+    }
+  ]
+}

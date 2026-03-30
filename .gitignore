@@ -1,0 +1,29 @@
+# Secrets
+.env
+*.key
+*.pem
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Media files (don't commit large files)
+*.mp4
+*.mkv
+*.mov
+*.avi
+*.wmv
+*.flv
+*.wav
+*.mp3
+
+# Output data
+*.zip
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Colab
+.virtual_documents/

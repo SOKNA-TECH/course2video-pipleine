@@ -1,0 +1,18 @@
+[
+  {
+    "title": "Historical Context of Software Design",
+    "summary": "Exploring the shift from monolithic architectures to microservices and the role of AI in this transition.",
+    "start_sentence_id": 0,
+    "end_sentence_id": 10,
+    "begin_time_ms": 0,
+    "end_time_ms": 300000
+  },
+  {
+    "title": "Modern Architectural Patterns",
+    "summary": "Analysis of event-driven systems and the importance of well-defined API contracts.",
+    "start_sentence_id": 11,
+    "end_sentence_id": 25,
+    "begin_time_ms": 305000,
+    "end_time_ms": 750000
+  }
+]

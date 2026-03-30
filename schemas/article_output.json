@@ -1,0 +1,4 @@
+{
+  "article_text": "This sample article explores the core concepts of software architecture and system design. It highlights the importance of transitioning from a coding-focused mindset to a design-first approach in the era of artificial intelligence.\n\nThe Evolution of Software Engineering\n\nSoftware engineering is no longer just about writing lines of code. With the advent of powerful AI coding assistants, the bottleneck has shifted from implementation to architecture and high-level logic. Students and professionals alike must now focus on how components interact, how data flows through a system, and how to define clear contracts between services using tools like OpenAPI.\n\n## Key Takeaways\n- Architecture defines the long-term viability of a software project.\n- AI-assisted coding requires precise human-led design to be effective.\n- OpenAPI serves as a 'source of truth' for cross-team collaboration.",
+  "time_to_read_minutes": 4
+}
